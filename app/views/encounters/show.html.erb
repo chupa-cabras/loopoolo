@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @encounter.date %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @encounter.status %>
+</p>
+
+<p>
+  <strong>Observations:</strong>
+  <%= @encounter.observations %>
+</p>
+
+<p>
+  <strong>Target:</strong>
+  <%= @encounter.target_id %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @encounter.owner_id %>
+</p>
+
+<%= link_to 'Edit', edit_encounter_path(@encounter) %> |
+<%= link_to 'Back', encounters_path %>

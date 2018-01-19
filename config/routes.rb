@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :teams
+  resources :companies
+  resources :encounters
   # Back admin routes start
   namespace :admin do
     resources :users
