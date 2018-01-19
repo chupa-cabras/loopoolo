@@ -25,6 +25,7 @@ class EncountersController < ApplicationController
   # POST /encounters.json
   def create
     @encounter = Encounter.new(encounter_params)
+    @encounter.owner_id = current_user.id
 
     respond_to do |format|
       if @encounter.save
@@ -69,6 +70,6 @@ class EncountersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def encounter_params
-      params.require(:encounter).permit(:date, :status, :observations, :target_id, :owner_id)
+      params.require(:encounter).permit(:date, :status, :observations, :target_id)
     end
 end

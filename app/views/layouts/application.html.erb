@@ -11,7 +11,7 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : Rails.application.secrets[:site_title] %>">
     <title><%= content_for?(:title) ? yield(:title) : Rails.application.secrets[:site_title] %></title>
 
-    <%= stylesheet_link_tag 'application_back', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= csrf_meta_tags %>
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
@@ -30,7 +30,7 @@
     </div>
   </body>
 
-  <%= javascript_include_tag 'application_back' %>
+  <%= javascript_include_tag 'application' %>
 
   <% if content_for?(:added_scripts) %>
     <%= yield :added_scripts %>

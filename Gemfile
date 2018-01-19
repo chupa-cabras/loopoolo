@@ -9,7 +9,6 @@ gem 'pg'
 gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'
-gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
@@ -52,15 +51,11 @@ end
 
 # Only Test env gems
 group :test do
-  gem 'capybara'
   gem 'database_cleaner'
-  gem 'launchy'
-  gem 'selenium-webdriver'
 end
 
 # Only Production env gems
 group :production do
-  gem 'unicorn'
 end
 
 # Both Test and Development env gems
