@@ -6,9 +6,8 @@
 //= require back/plugins/datatables/dataTables.bootstrap.min
 //= require back/app
 
-
-//= require back/plugins/datepicker/bootstrap-datepicker
-//= require back/plugins/timepicker/bootstrap-timepicker.min
+//= require back/plugins/daterangepicker/moment
+//= require back/plugins/datetimepicker/datetimepicker
 
 $(document).ready(function() {
   var table = $('.dataTable').DataTable();
@@ -38,14 +37,8 @@ $(document).ready(function() {
     }
   });
 
-  $('#datepicker').datepicker({
-      format: "dd/mm/yyyy",
-      todayBtn: true,
-      clearBtn: true,
-      language: "en",
-      orientation: "bottom auto",
-      autoclose: true,
-      todayHighlight: true
+  $('#datetimepicker').datetimepicker({
+    format: 'DD/MM/YYYY HH:mm'
   });
 
   
