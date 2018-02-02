@@ -1,4 +1,4 @@
-class EncountersController < ApplicationController
+class EncountersController < BaseController
   before_action :set_encounter, only: [:show, :edit, :update, :destroy]
 
   # GET /encounters

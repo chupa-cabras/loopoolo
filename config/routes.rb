@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
   resources :comments
   resources :teams
   resources :companies
@@ -17,6 +19,6 @@ Rails.application.routes.draw do
              path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
 
   # Application root
-  root to: 'application#home'
+  root to: 'home#index'
   # Front routes end
 end
