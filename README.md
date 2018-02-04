@@ -20,7 +20,18 @@ Loopoolo is a system that allow you manage people. This systems uses some concep
 
 ### 2. Install
 
-It will come soon 
+##### Create your own database file
+cp config/database.yml.sample config/database.yml
+
+##### Create your own secrets file
+cp config/secrets.yml.sample config/secrets.yml
+
+##### Setup database
+bundle exec rake db:create
+bundle exec rake db:migrate
+
+##### Start web server
+bundle exec rails server
 
 ### 3. I would like to contribute
 
