@@ -22,7 +22,10 @@ Loopoolo is a system that allow you manage people. This systems uses some concep
 
 It will come soon 
 
+### 3. I would like to contribute
 
-### 3. Credits
+Just access ( https://github.com/chupa-cabras/loopoolo/blob/master/CONTRIBUTING.md )
+
+### 4. Credits
 DW Pellegrina 
 Jackson Borsatto 
