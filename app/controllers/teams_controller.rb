@@ -1,5 +1,6 @@
 class TeamsController < BaseController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :companies
 
   # GET /teams
   # GET /teams.json
@@ -59,6 +60,10 @@ class TeamsController < BaseController
       format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def companies
+    @companies = Company.all
   end
 
   private

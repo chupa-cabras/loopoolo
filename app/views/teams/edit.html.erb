@@ -1,6 +1,22 @@
-<h1>Editing Team</h1>
+<%= form_for @team, url: @url, role: :form, html: { multipart: true } do |f| %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
 
-<%= render 'form', team: @team %>
+        <div class="box-header">
+          <h3 class="box-title">Editing Team</h3>
+        </div>
 
-<%= link_to 'Show', @team %> |
-<%= link_to 'Back', teams_path %>
+        <div class="box-body">
+          <%= render partial: 'teams/form', locals: { f: f } %>
+        </div>
+
+        <div class="box-footer">
+          <%= link_to 'Cancel', teams_path, class: 'btn btn-danger' %>
+          <%= f.submit 'Submit', class: "btn btn-success" %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<% end %>

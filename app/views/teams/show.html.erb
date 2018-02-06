@@ -1,24 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
 
-<p>
-  <strong>Logo:</strong>
-  <%= @team.logo %>
-</p>
+      <div class="box-header">
+        <h3 class="box-title"><%= @team.name %></h3>
+      </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @team.name %>
-</p>
+      <div class="box-body">
+        <div>
+          <%= label_tag 'description', 'Description:' %>
+          <%= @team.description %>
+        </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @team.description %>
-</p>
+        <div>
+          <%= label_tag 'company', 'Company:' %>
+          <%= @team.company.name %>
+        </div>
 
-<p>
-  <strong>Company:</strong>
-  <%= @team.company %>
-</p>
+        <div>
+          <%= label_tag 'logo', 'Logo:' %>
+          <%= @team.logo %>
+        </div>
+      </div>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+      <div class="box-footer">
+        <%= link_to 'Back', teams_path, class: 'btn btn-danger' %>
+        <%= link_to 'Edit', edit_team_url(@team), class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>
