@@ -7,13 +7,14 @@ puts 'CREATED ADMIN USER: ' << user.email
 
 
 
+if Rails.env.development?
+  (0..30).each do |i|
+    user = User.create(email: Faker::Internet.email,
+                name: Faker::LordOfTheRings.character,
+                password: Rails.application.secrets.default_user_password,
+                password_confirmation: Rails.application.secrets.default_user_password
+                )
 
-(0..30).each do |i|
-  user = User.create(email: Faker::Internet.email,
-              name: Faker::LordOfTheRings.character,
-              password: 'inicial1234',
-              password_confirmation: 'inicial1234'
-              )
-
-  puts "User #{user.name}( #{user.email} ) created"
+    puts "User #{user.name}( #{user.email} ) created"
+  end
 end

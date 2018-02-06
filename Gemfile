@@ -63,6 +63,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'capybara', '2.14.0'
   gem 'rubocop'
   gem 'byebug', platform: :mri
 end

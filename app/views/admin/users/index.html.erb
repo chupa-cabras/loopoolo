@@ -16,7 +16,8 @@
                     <tr>
                       <th>Name</th>
                       <th>Email</th>
-                      <th class="col-xs-1">Actions</th>
+                      <th>Role</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
 
@@ -25,6 +26,7 @@
                       <tr>
                         <td> <%= user.name %> </td>
                         <td> <%= user.email %> </td>
+                        <td> <%= user.role.titleize %> </td>
                         <td>
                           <div class="btn-row">
                             <%= link_to raw('<i class="fa fa-cogs"></i>'), edit_admin_user_url(user), class: 'btn btn-sm btn-warning' %>
@@ -40,7 +42,7 @@
                     <tr role="row">
                       <th>Name</th>
                       <th>Email</th>
-                      <th class="col-xs-1">Actions</th>
+                      <th>Actions</th>
                     </tr>
                   </tfoot>
                 </table>
