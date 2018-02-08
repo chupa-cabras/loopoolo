@@ -18,3 +18,6 @@ if Rails.env.development?
     puts "User #{user.name}( #{user.email} ) created"
   end
 end
+
+  company = Company.create(logo: 'My Logo', name: 'My Company', description: 'My Company' )
+  puts "Company #{company.name} created"

@@ -1,18 +1,18 @@
 <div class="row">
   <div class="col-xs-12">
-      <div class="box">
+    <div class="box">
 
-        <div class="box-header">
-          <h3 class="box-title">List of Users</h3>
-        </div>
+      <div class="box-header">
+        <h3 class="box-title">List of Users</h3>
+      </div>
 
-        <div class="box-body">
-          <div id="user_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+      <div class="box-body">
+        <div id="user_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
 
-            <div class="row">
-              <div class="col-sm-12">
-                <table id="user_index" class="table table-bordered table-striped dataTable" role="grid">
-                  <thead>
+          <div class="row">
+            <div class="col-sm-12">
+              <table id="user_index" class="table table-bordered table-striped dataTable" role="grid">
+                <thead role="row">
                     <tr>
                       <th>Name</th>
                       <th>Email</th>
@@ -29,9 +29,10 @@
                         <td> <%= user.role.titleize %> </td>
                         <td>
                           <div class="btn-row">
-                            <%= link_to raw('<i class="fa fa-cogs"></i>'), edit_admin_user_url(user), class: 'btn btn-sm btn-warning' %>
-                            <%= link_to raw('<i class="fa fa-trash"></i>'), admin_user_url(user), class: 'btn btn-sm btn-danger', method: :delete,
-                                            data: { confirm: 'Are you sure you want to delete this element?' } %>
+                          <%= link_to raw('<i class="fa fa-search"></i>'), admin_user_url(user), class: 'btn btn-sm bg-olive' %>
+                          <%= link_to raw('<i class="fa fa-cogs"></i>'), edit_admin_user_url(user), class: 'btn btn-sm bg-orange' %>
+                          <%= link_to raw('<i class="fa fa-trash"></i>'), admin_user_url(user), class: 'btn btn-sm bg-maroon', method: :delete,
+                                          data: { confirm: 'Are you sure you want to delete this element?' } %>
                           </div>
                         </td>
                       </tr>
@@ -44,14 +45,13 @@
                       <th>Email</th>
                       <th>Actions</th>
                     </tr>
-                  </tfoot>
-                </table>
-              </div>
+                  <% end %>
+                </tbody>
+              </table>
             </div>
-
           </div>
         </div>
-
+      </div>
     </div>
   </div>
 </div>

@@ -1,16 +1,25 @@
 <div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control", placeholder: "Enter name", required: true %>
+  <span class="help-block"><i>* This field is required</i><span>
+</div>
+
+<div class="form-group">
   <%= f.label :email %>
   <%= f.email_field :email, class: "form-control", placeholder: "Enter email", required: true %>
   <span class="help-block"><i>* This field is required</i><span>
 </div>
 
 <div class="form-group">
+  <%= f.label :teams %>
+  <%= render partial: "team_checkbox", collection: @teams %>
+</div>
+    
+<div class="form-group">
   <%= f.label :name %>
   <%= f.text_field :name, class: "form-control", placeholder: "Enter name", required: true %>
   <span class="help-block"><i>* This field is required</i><span>
 </div>
 
-
 <%= render partial: 'admin/users/self_form', locals: { f: f } if  (current_user.id == @user.id) %>
-
 <%= render partial: 'admin/users/admin_form', locals: { f: f } if current_user.present? && current_user.admin? %>
