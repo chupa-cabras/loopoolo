@@ -69,8 +69,7 @@ module Admin
 
     def user_params
       teams = params.permit(@teams.map(&:name)).values
-      params.require(:user).permit(:email, :password, :password_confirmation, :name)
+      params.require(:user).permit(:email, :password, :password_confirmation, :name, :role)
                            .merge(team_ids: teams.map(&:to_i))
     end
   end
-end

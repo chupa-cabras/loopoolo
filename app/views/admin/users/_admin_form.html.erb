@@ -1,0 +1,6 @@
+<div class="form-group">
+  <%= f.label :role %>
+  <%= f.select :role, User.roles.keys.map {|role| [role.titleize,role]}, class: "form-control", placeholder: "Enter role", required: true  %>
+
+  <span class="help-block"><i>* This field is required</i><span>
+</div>

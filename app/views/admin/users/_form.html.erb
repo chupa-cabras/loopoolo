@@ -11,18 +11,15 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :password %>
-  <%= f.password_field :password, class: "form-control", placeholder: "Enter password", required: (@user.new_record? ? true : false) %>
-  <span class="help-block"><i>* This field is required (leave blank if you are editing and don't want to change the password)</i><span>
-</div>
-
-<div class="form-group">
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password", required: (@user.new_record? ? true : false) %>
-  <span class="help-block"><i>* This field is required (leave blank if you are editing and don't want to change the password)</i><span>
-</div>
-
-<div class="form-group">
   <%= f.label :teams %>
   <%= render partial: "team_checkbox", collection: @teams %>
 </div>
+    
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control", placeholder: "Enter name", required: true %>
+  <span class="help-block"><i>* This field is required</i><span>
+</div>
+
+<%= render partial: 'admin/users/self_form', locals: { f: f } if  (current_user.id == @user.id) %>
+<%= render partial: 'admin/users/admin_form', locals: { f: f } if current_user.present? && current_user.admin? %>
