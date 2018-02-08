@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'quests/index'
+
+  get 'quests/new'
+
+  get 'quests/create'
+
+  get 'quests/finish'
+
+  get 'quests/cancel'
+
   get 'home/index'
 
   resources :comments

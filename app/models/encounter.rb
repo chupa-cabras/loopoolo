@@ -7,6 +7,7 @@ class Encounter < ApplicationRecord
   validates :status, presence: true
   validates :date, presence: true
 
+  #TODO: Change to status
   enum statuses: { open:0, complete:1, cancelled:2 }
 
   def target_name
@@ -14,6 +15,7 @@ class Encounter < ApplicationRecord
   end
 
   def get_status
+    #TODO:Refactor this !
     self.class.statuses.invert[status]
   end
 
