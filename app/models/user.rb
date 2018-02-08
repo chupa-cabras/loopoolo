@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_and_belongs_to_many :teams, join_table: 'users_teams'
+
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 

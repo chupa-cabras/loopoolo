@@ -7,9 +7,16 @@
       </div>
 
       <div class="box-body">
-        <div>
-          <%= label_tag 'email', 'E-mail:' %>
+        <%= label_tag 'email', 'E-mail:' %>
+        <div class="form-group">
           <%= @user.email %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag 'teams', 'Teams:' %>
+          <% @user.teams.each do |t| %>
+            <div><%= t.name %></div>
+          <% end %>
         </div>
       </div>
 
