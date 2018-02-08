@@ -73,3 +73,4 @@ module Admin
                            .merge(team_ids: teams.map(&:to_i))
     end
   end
+end
