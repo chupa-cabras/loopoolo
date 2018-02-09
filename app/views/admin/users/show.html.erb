@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+
+      <div class="box-header">
+        <h3 class="box-title"><%= @user.name %></h3>
+      </div>
+
+      <div class="box-body">
+        <%= label_tag 'email', 'E-mail:' %>
+        <div class="form-group">
+          <%= @user.email %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag 'teams', 'Teams:' %>
+          <% @user.teams.each do |t| %>
+            <div><%= t.name %></div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="box-footer">
+        <%= link_to 'Back', admin_users_path, class: 'btn btn-danger' %>
+        <%= link_to 'Edit', edit_admin_user_url(@user), class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>

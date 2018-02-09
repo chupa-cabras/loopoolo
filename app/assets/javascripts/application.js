@@ -4,6 +4,7 @@
 //= require back/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min
 //= require back/plugins/datatables/jquery.dataTables.min
 //= require back/plugins/datatables/dataTables.bootstrap.min
+//= require back/plugins/select2/select2.min
 //= require back/app
 
 //= require back/plugins/daterangepicker/moment
@@ -41,5 +42,6 @@ $(document).ready(function() {
     format: 'DD/MM/YYYY HH:mm'
   });
 
+  $('.select2').select2();
   
 });

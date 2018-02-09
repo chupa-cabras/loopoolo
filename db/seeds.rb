@@ -7,14 +7,30 @@ puts 'CREATED ADMIN USER: ' << user.email
 
 
 
+
+
 if Rails.env.development?
+
+
+  company = Company.create(logo: 'My Logo', name: 'My Company', description: 'My Company' )
+  puts "Company #{company.name} created"
+
+  team = Team.create(logo: 'some_logo.jpg', name: 'Fellowship of the Ring', description: '', company_id: company.id)
+  puts "Team #{team.name} created"
+
+
   (0..30).each do |i|
     user = User.create(email: Faker::Internet.email,
                 name: Faker::LordOfTheRings.character,
                 password: Rails.application.secrets.default_user_password,
-                password_confirmation: Rails.application.secrets.default_user_password
+                password_confirmation: Rails.application.secrets.default_user_password,
+                teams: [team]
                 )
 
     puts "User #{user.name}( #{user.email} ) created"
   end
 end
+
+
+
+

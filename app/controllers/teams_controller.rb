@@ -1,14 +1,13 @@
 class TeamsController < BaseController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :companies, olny: [:new, :edit]
 
   # GET /teams
-  # GET /teams.json
   def index
     @teams = Team.all
   end
 
   # GET /teams/1
-  # GET /teams/1.json
   def show
   end
 
@@ -22,7 +21,6 @@ class TeamsController < BaseController
   end
 
   # POST /teams
-  # POST /teams.json
   def create
     @team = Team.new(team_params)
 
@@ -38,7 +36,6 @@ class TeamsController < BaseController
   end
 
   # PATCH/PUT /teams/1
-  # PATCH/PUT /teams/1.json
   def update
     respond_to do |format|
       if @team.update(team_params)
@@ -52,7 +49,6 @@ class TeamsController < BaseController
   end
 
   # DELETE /teams/1
-  # DELETE /teams/1.json
   def destroy
     @team.destroy
     respond_to do |format|
@@ -61,13 +57,15 @@ class TeamsController < BaseController
     end
   end
 
+  def companies
+    @companies = Company.all
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_team
       @team = Team.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
       params.require(:team).permit(:logo, :name, :description, :company_id)
     end
