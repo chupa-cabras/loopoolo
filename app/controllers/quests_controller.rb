@@ -2,7 +2,9 @@ class QuestsController < BaseController
   before_action :set_quest, only: [:finish, :cancel]
 
   def index
-    @quests = Quest.where("requestor = :id or executor = :id", id: current_user.id)
+    load_quests
+    @quest = Quest.new
+    #binding.pry
   end
 
   def new
@@ -12,13 +14,17 @@ class QuestsController < BaseController
   def create
     @quest = Quest.new(quest_params)
     @quest.requestor = current_user.id
+    @quest.status = :open
+
 
     respond_to do |format|
       if @quest.save
-        format.html { redirect_to @quest, notice: 'Quest was successfully created.' }
-        format.json { render :show, status: :created, location: @quest }
+        load_quests
+        format.html { render :index, notice: 'Quest was successfully created.' }
+        format.json { render :index, status: :created, location: @quest }
       else
-        format.html { render :new }
+        load_quests
+        format.html { render :index }
         format.json { render json: @quest.errors, status: :unprocessable_entity }
       end
     end
@@ -35,6 +41,10 @@ class QuestsController < BaseController
   private
     def set_quest
       @quest = Quest.find(params[:id])
+    end
+
+    def load_quests
+      @quests = Quest.where("requestor = :id or executor = :id", id: current_user.id)
     end
 
     def quest_params
