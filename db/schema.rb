@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180207100328) do
+ActiveRecord::Schema.define(version: 20180209182221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "uuid-ossp"
 
   create_table "comments", force: :cascade do |t|
     t.integer  "encounter_id"
@@ -35,6 +34,41 @@ ActiveRecord::Schema.define(version: 20180207100328) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "competencies", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "competency_type_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["competency_type_id"], name: "index_competencies_on_competency_type_id", using: :btree
+  end
+
+  create_table "competencies_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "competency_id"
+    t.integer  "level_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["competency_id"], name: "index_competencies_users_on_competency_id", using: :btree
+    t.index ["level_id"], name: "index_competencies_users_on_level_id", using: :btree
+    t.index ["user_id"], name: "index_competencies_users_on_user_id", using: :btree
+  end
+
+  create_table "competency_levels", force: :cascade do |t|
+    t.integer  "competency_id"
+    t.integer  "level_id"
+    t.integer  "weight"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["competency_id"], name: "index_competency_levels_on_competency_id", using: :btree
+    t.index ["level_id"], name: "index_competency_levels_on_level_id", using: :btree
+  end
+
+  create_table "competency_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "encounters", force: :cascade do |t|
     t.datetime "date"
     t.integer  "status"
@@ -45,13 +79,10 @@ ActiveRecord::Schema.define(version: 20180207100328) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "quests", force: :cascade do |t|
-    t.string   "description"
-    t.integer  "requestor"
-    t.integer  "executor"
-    t.integer  "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "levels", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "teams", force: :cascade do |t|
@@ -92,5 +123,9 @@ ActiveRecord::Schema.define(version: 20180207100328) do
 
   add_foreign_key "comments", "encounters"
   add_foreign_key "comments", "users"
+  add_foreign_key "competencies", "competency_types"
+  add_foreign_key "competencies_users", "levels"
+  add_foreign_key "competency_levels", "competencies"
+  add_foreign_key "competency_levels", "levels"
   add_foreign_key "teams", "companies"
 end

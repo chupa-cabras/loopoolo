@@ -1,0 +1,2 @@
+class CompetencyType < ApplicationRecord
+end

@@ -6,18 +6,25 @@ puts 'CREATED ADMIN USER: ' << user.email
 # Environment variables (ENV['...']) can be set in the file .env file.
 
 
+levels = ['Beginner','Advanced','Expert']
+levels.each do |l|
+  level = Level.create(name: l)
+  puts "Level {level.name} created"
+end
 
-
+types = ['Language','Framework','System','Process','Tool']
+types.each do |t|
+  type = CompetencyType.create(name: t)
+  puts "Type {type.name} created"
+end
 
 if Rails.env.development?
 
-
-  company = Company.create(logo: 'My Logo', name: 'My Company', description: 'My Company' )
+  company = Company.create(logo: 'my_logo.jpg', name: 'My Company', description: 'My Company' )
   puts "Company #{company.name} created"
 
   team = Team.create(logo: 'some_logo.jpg', name: 'Fellowship of the Ring', description: '', company_id: company.id)
   puts "Team #{team.name} created"
-
 
   (0..30).each do |i|
     user = User.create(email: Faker::Internet.email,
@@ -30,7 +37,6 @@ if Rails.env.development?
     puts "User #{user.name}( #{user.email} ) created"
   end
 end
-
 
 
 
