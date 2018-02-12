@@ -23,8 +23,8 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :executor %>
-          <%= f.select('executor', User.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Select User'}, {class: 'form-control'}) %>
+          <%= f.label :executor_id %>
+          <%= f.select('executor_id', User.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Select User'}, {class: 'form-control'}) %>
         </div>
 
         <div class="actions">

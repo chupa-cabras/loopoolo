@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 20180207100328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "uuid-ossp"
 
   create_table "comments", force: :cascade do |t|
     t.integer  "encounter_id"
@@ -47,11 +46,13 @@ ActiveRecord::Schema.define(version: 20180207100328) do
 
   create_table "quests", force: :cascade do |t|
     t.string   "description"
-    t.integer  "requestor"
-    t.integer  "executor"
+    t.integer  "requestor_id"
+    t.integer  "executor_id"
     t.integer  "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["executor_id"], name: "index_quests_on_executor_id", using: :btree
+    t.index ["requestor_id"], name: "index_quests_on_requestor_id", using: :btree
   end
 
   create_table "teams", force: :cascade do |t|

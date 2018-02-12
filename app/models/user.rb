@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_and_belongs_to_many :teams, join_table: 'users_teams'
+  has_many :quests, foreign_key: 'requestor_id'
+  has_many :quests, foreign_key: 'executor_id'
 
   enum role: [:hero, :game_master, :admin]
   after_initialize :set_default, :if => :new_record?
