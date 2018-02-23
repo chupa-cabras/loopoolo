@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20180207100328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "comments", force: :cascade do |t|
     t.integer  "encounter_id"
