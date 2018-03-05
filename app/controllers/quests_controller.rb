@@ -30,10 +30,12 @@ class QuestsController < BaseController
 
   def finish
     @quest.finished!
+    render :index, notice: 'Quest was finished.'
   end
 
   def cancel
     @quest.cancelled!
+    render :index, notice: 'Quest was cancelled.'
   end
 
   private

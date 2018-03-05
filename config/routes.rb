@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :companies
   resources :encounters
   # Back admin routes start
+
+
+  post '/quests/:id/cancel', to: 'quests#cancel'
+
   namespace :admin do
     resources :users
 
