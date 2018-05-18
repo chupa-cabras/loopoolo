@@ -7,14 +7,11 @@ class Encounter < ApplicationRecord
   validates :status, presence: true
   validates :date, presence: true
 
-  enum statuses: { open:0, complete:1, cancelled:2 }
+  #TODO: Change to status
+  enum status: { open:0, complete:1, cancelled:2 }
 
   def target_name
     get_user(self.target_id).try(:name)
-  end
-
-  def get_status
-    self.class.statuses.invert[status]
   end
 
   def owner_name

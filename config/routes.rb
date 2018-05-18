@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  get 'home/index'
 
+  resources :quests
   resources :comments
   resources :teams
   resources :companies
   resources :encounters
   # Back admin routes start
+
+
+  put '/quests/:id/cancel', to: 'quests#cancel', as: 'quest_cancel'
+  put '/quests/:id/finish', to: 'quests#finish', as: 'quest_finish'
+
   namespace :admin do
     resources :users
 

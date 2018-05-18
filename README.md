@@ -2,7 +2,6 @@
 
 Loopoolo is a system that allow you manage people. This systems uses some concepts of management 3.0 (created by Jurgen Appelo). The idea is "don't loose yourself" when you organize your feedbacks and some informations of your crew. 
 
-
 ### 1. Features
 
 * Users management;  (on development)
@@ -39,4 +38,8 @@ Just access ( https://github.com/chupa-cabras/loopoolo/blob/master/CONTRIBUTING.
 
 ### 4. Credits
 DW Pellegrina 
-Jackson Borsatto 
+Jackson Borsatto
+
+Thanks Admin LTE developers
+https://adminlte.io/themes/AdminLTE/pages/tables/simple.html
+https://adminlte.io/docs/2.4/installation
