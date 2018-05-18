@@ -20,7 +20,7 @@ class Encounter < ApplicationRecord
 
   def comments
     Comment.where(encounter: id)
-  end 
+  end
 
   def number_of_comments
     comments.size
