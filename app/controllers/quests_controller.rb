@@ -1,9 +1,8 @@
 class QuestsController < BaseController
-  before_action :set_quest, only: [:finish, :cancel]
+  before_action :set_quest, only: [:finish, :cancel, :show]
+  before_action :load_quests, only: [:index, :new]
 
   def index
-    @my_quests = Quest.where("executor_id = :id", id: current_user.id)
-    @requested_quests = Quest.where("requestor_id = :id", id: current_user.id)
     @quest = Quest.new
   end
 
@@ -11,18 +10,17 @@ class QuestsController < BaseController
     @quest = Quest.new
   end
 
+  def show
+  end
+
   def create
-    @quest = Quest.new(quest_params)
-    @quest.requestor = current_user
-    @quest.status = :open
-
-
+    @quest = Quest.new(quest_params.merge({requestor: current_user, status: :open}))
     respond_to do |format|
       if @quest.save
-        format.html { render :index, notice: 'Quest was successfully created.' }
-        format.json { render :index, status: :created, location: @quest }
+        format.html { redirect_to @quest, notice: 'Quest was successfully created.' }
+        format.json { render :new, status: :created, location: @quest }
       else
-        format.html { render :index }
+        format.html { render :new }
         format.json { render json: @quest.errors, status: :unprocessable_entity }
       end
     end
@@ -30,12 +28,18 @@ class QuestsController < BaseController
 
   def finish
     @quest.finished!
-    render :index, notice: 'Quest was finished.'
+    respond_to do |format|
+      format.html { redirect_to quests_url, notice: 'Quest was successfully finished.' }
+      format.json { head :no_content }
+    end
   end
 
   def cancel
     @quest.cancelled!
-    render :index, notice: 'Quest was cancelled.'
+    respond_to do |format|
+      format.html { redirect_to quests_url, notice: 'Quest was successfully cancelled.' }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -45,5 +49,10 @@ class QuestsController < BaseController
 
     def quest_params
       params.require(:quest).permit(:executor_id, :description)
+    end
+
+    def load_quests
+      @my_quests = Quest.where("executor_id = :id", id: current_user.id)
+      @requested_quests = Quest.where("requestor_id = :id", id: current_user.id)
     end
 end

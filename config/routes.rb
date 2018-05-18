@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   # Back admin routes start
 
 
-  post '/quests/:id/cancel', to: 'quests#cancel'
+  put '/quests/:id/cancel', to: 'quests#cancel', as: 'quest_cancel'
+  put '/quests/:id/finish', to: 'quests#finish', as: 'quest_finish'
 
   namespace :admin do
     resources :users
