@@ -70,6 +70,8 @@ class EncountersController < BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def encounter_params
-      params.require(:encounter).permit(:date, :status, :observations, :target_id)
+      params.require(:encounter).permit(:date, :status, :observations, :target_id).tap do |p|
+        p['status'] = p['status'].to_i
+      end
     end
 end

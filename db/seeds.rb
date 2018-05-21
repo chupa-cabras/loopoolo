@@ -31,12 +31,13 @@ if Rails.env.development?
                 name: Faker::LordOfTheRings.character,
                 password: Rails.application.secrets.default_user_password,
                 password_confirmation: Rails.application.secrets.default_user_password,
-                teams: [team]
+                teams: [team],
+                role: :hero
                 )
-
-    puts "User #{user.name}( #{user.email} ) created"
+    if user.id.present?
+      puts "User #{user.name}( #{user.email} ) created"
+    else
+      puts user.errors.messages.to_s
+    end
   end
 end
-
-
-
