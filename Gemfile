@@ -19,6 +19,8 @@ gem 'pundit'
 gem 'sendgrid'
 gem 'layer-handler'
 gem 'friendly_id'
+gem 'xmlrpc'
+gem 'gravatar-ultimate'
 
 # Only Development env gems
 group :development do

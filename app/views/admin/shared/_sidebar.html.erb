@@ -3,7 +3,7 @@
 
     <div class="user-panel">
       <div class="pull-left image">
-        <%= image_tag "http://placehold.it/160x160", class: "img-circle" %>
+        <%= image_tag  Gravatar.new(current_user.email).image_url, class: "img-circle" %>
       </div>
       <div class="pull-left info">
         <p><%= current_user.name %></p>
