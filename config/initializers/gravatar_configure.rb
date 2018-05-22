@@ -1,4 +1,2 @@
-
-# Gravatar.cache = ActiveSupport::Cache::SynchronizedMemoryStore.new
-
-Gravatar.duration = 20.minutes
+# add here the configuration of gravatar
+# - cache, cache time, etc..
