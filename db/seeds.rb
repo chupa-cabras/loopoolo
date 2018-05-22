@@ -18,8 +18,8 @@ if Rails.env.development?
   team = Team.create(logo: 'some_logo.jpg', name: 'Fellowship of the Ring', description: '', company_id: company.id)
   puts "Team #{team.name} created"
 
-  User.create(email :'dayvison.pellegrina@locaweb.com.br', name: 'chupa cabras'
-              password:'senha', password_confirmation: 'senha')
+  User.create(email: 'dayvison.pellegrina@locaweb.com.br', name: 'chupa cabras',
+              password: 'senha', password_confirmation: 'senha')
 
   (0..30).each do |i|
     user = User.create(email: Faker::Internet.email,
