@@ -17,16 +17,16 @@
   <body class="hold-transition skin-black sidebar-mini">
 
     <div class="wrapper">
-      <%= render partial: 'admin/shared/header' %>
-      <%= render partial: 'admin/shared/sidebar' %>
+      <%= render partial: 'shared/header' %>
+      <%= render partial: 'shared/sidebar' %>
       <div class="content-wrapper">
-        <%= render partial: 'admin/shared/content_header' %>
+        <%= render partial: 'shared/content_header' %>
         <section class="content">
-          <%= render partial: 'admin/shared/messages' %>
+          <%= render partial: 'shared/messages' %>
           <%= yield %>
         </section>
       </div>
-      <%= render partial: 'admin/shared/footer' %>
+      <%= render partial: 'shared/footer' %>
     </div>
   </body>
 

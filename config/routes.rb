@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :users
 
     # Admin root
-    root to: 'application#index'
+    #root to: 'application#index'
   end
   # Back admin routes end
 

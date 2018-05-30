@@ -19,7 +19,7 @@ module Admin
       if devise_controller?
         'layouts/devise'
       else
-        'admin/layouts/admin'
+        'layouts/application'
       end
     end
   end

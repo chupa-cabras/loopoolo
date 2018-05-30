@@ -1,9 +1,9 @@
 <header class="main-header">
-  <%= content_tag :a, href: admin_root_path, class: 'logo' do %>
+  <%= content_tag :a, href: root_path, class: 'logo' do %>
     <span class="logo-mini">
       <b>L</b>
     </span>
-    
+
     <span class="logo-lg">
       <img src="/images/logo.png">
     </span>
@@ -14,6 +14,6 @@
       <span class="sr-only">Toggle navigation</span>
     </a>
 
-    <%= render partial: 'admin/shared/user_navbar' unless current_user.nil? %>
+    <%= render partial: 'shared/user_navbar' unless current_user.nil? %>
   </nav>
 </header>
