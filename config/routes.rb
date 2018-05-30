@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :competencies
+  resources :competency_types
+  resources :levels
   resources :quests
   resources :comments
   resources :teams

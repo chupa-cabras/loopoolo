@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Competency Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @competency_types.each do |competency_type| %>
+      <tr>
+        <td><%= link_to 'Show', competency_type %></td>
+        <td><%= link_to 'Edit', edit_competency_type_path(competency_type) %></td>
+        <td><%= link_to 'Destroy', competency_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Competency Type', new_competency_type_path %>
