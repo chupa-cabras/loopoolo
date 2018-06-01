@@ -1,0 +1,12 @@
+<%= semantic_form_for @user_competency_level do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :user %>
+    <%= f.input :competency %>
+    <%= f.input :level %>
+    <%= f.input :started_date %>
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :input %>
+  <% end %>
+<% end %>

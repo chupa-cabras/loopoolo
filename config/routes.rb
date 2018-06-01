@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_competency_levels
   resources :competencies
   resources :competency_types
   resources :levels

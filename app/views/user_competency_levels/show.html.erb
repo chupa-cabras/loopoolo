@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_competency_level.user %>
+</p>
+
+<p>
+  <strong>Competency:</strong>
+  <%= @user_competency_level.competency %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @user_competency_level.level %>
+</p>
+
+<p>
+  <strong>Started date:</strong>
+  <%= @user_competency_level.started_date %>
+</p>
+
+<%= link_to 'Edit', edit_user_competency_level_path(@user_competency_level) %> |
+<%= link_to 'Back', user_competency_levels_path %>

@@ -2,24 +2,55 @@
 
 <h1>Levels</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">List of Levels</h3>
+      </div>
 
-  <tbody>
-    <% @levels.each do |level| %>
-      <tr>
-        <td><%= link_to 'Show', level %></td>
-        <td><%= link_to 'Edit', edit_level_path(level) %></td>
-        <td><%= link_to 'Destroy', level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="box-body">
+        <div id="user_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
 
-<br>
+          <div class="row">
+            <div class="col-sm-12">
+              <table id="user_index" class="table table-bordered table-striped dataTable" role="grid">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>weight</th>
+                  </tr>
+                </thead>
 
-<%= link_to 'New Level', new_level_path %>
+                <tbody>
+                  <% @levels.each do |level| %>
+                    <tr>
+                      <td><%= level.name %></td>
+                      <td><%= level.description %></td>
+                      <td><%= level.weight %></td>
+                      <td>
+                        <div class="btn-row">
+                          <%= link_to raw('<i class="fa fa-search"></i>'), level, class: 'btn btn-sm btn-success' %>
+                          <%= link_to raw('<i class="fa fa-cogs"></i>'), edit_level_url(level), class: 'btn btn-sm btn-warning' %>
+                          <%= link_to raw('<i class="fa fa-trash"></i>'), level_url(level), class: 'btn btn-sm btn-danger', method: :delete,
+                                          data: { confirm: 'Are you sure you want to delete this element?' } %>
+                        </div>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 col-md-offset-10">
+    <%= link_to 'New level', new_level_path, class: 'btn btn-success pull-right' %>
+  </div>
+</div>

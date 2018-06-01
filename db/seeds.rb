@@ -8,13 +8,13 @@ puts 'CREATED ADMIN USER: ' << user.email
 
 levels = ['Beginner','Advanced','Expert']
 levels.each do |l|
-  level = Level.create(name: l)
+  level = Level.create(name: l, description: 'some description', weight: 1)
   puts "Level {level.name} created"
 end
 
 types = ['Language','Framework','System','Process','Tool']
 types.each do |t|
-  type = CompetencyType.create(name: t)
+  type = CompetencyType.create(name: t, description: 'some description', weight: 1)
   puts "Type {type.name} created"
 end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180209182221) do
+ActiveRecord::Schema.define(version: 20180601201122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20180209182221) do
 
   create_table "competencies", force: :cascade do |t|
     t.string   "name"
+    t.string   "description"
     t.integer  "competency_type_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -64,9 +65,11 @@ ActiveRecord::Schema.define(version: 20180209182221) do
   end
 
   create_table "competency_types", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                    null: false
+    t.string   "description",             null: false
+    t.integer  "weight",      default: 1
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "encounters", force: :cascade do |t|
@@ -77,6 +80,14 @@ ActiveRecord::Schema.define(version: 20180209182221) do
     t.integer  "owner_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "levels", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description",             null: false
+    t.integer  "weight",      default: 1
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "quests", force: :cascade do |t|
@@ -90,12 +101,6 @@ ActiveRecord::Schema.define(version: 20180209182221) do
     t.index ["requestor_id"], name: "index_quests_on_requestor_id", using: :btree
   end
 
-  create_table "levels", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "teams", force: :cascade do |t|
     t.string   "logo"
     t.string   "name"
@@ -104,6 +109,18 @@ ActiveRecord::Schema.define(version: 20180209182221) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["company_id"], name: "index_teams_on_company_id", using: :btree
+  end
+
+  create_table "user_competency_levels", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "competency_id"
+    t.integer  "level_id"
+    t.date     "started_date"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["competency_id"], name: "index_user_competency_levels_on_competency_id", using: :btree
+    t.index ["level_id"], name: "index_user_competency_levels_on_level_id", using: :btree
+    t.index ["user_id"], name: "index_user_competency_levels_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -139,4 +156,7 @@ ActiveRecord::Schema.define(version: 20180209182221) do
   add_foreign_key "competency_levels", "competencies"
   add_foreign_key "competency_levels", "levels"
   add_foreign_key "teams", "companies"
+  add_foreign_key "user_competency_levels", "competencies"
+  add_foreign_key "user_competency_levels", "levels"
+  add_foreign_key "user_competency_levels", "users"
 end

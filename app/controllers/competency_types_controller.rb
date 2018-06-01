@@ -69,6 +69,6 @@ class CompetencyTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def competency_type_params
-      params.fetch(:competency_type, {})
+      params.require(:competency_type).permit(:name, :description, :weight)
     end
 end

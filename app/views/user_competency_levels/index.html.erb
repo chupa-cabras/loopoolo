@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Competencies</h1>
+<h1>Competency Manager</h1>
 
 <div class="row">
   <div class="col-xs-12">
@@ -17,23 +17,25 @@
               <table id="user_index" class="table table-bordered table-striped dataTable" role="grid">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Type</th>
+                    <th>User</th>
+                    <th>Competency</th>
+                    <th>Level</th>
+                    <th>Started date</th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  <% @competencies.each do |competency| %>
+                  <% @user_competency_levels.each do |user_competency_level| %>
                     <tr>
-                      <td><%= competency.name %></td>
-                      <td><%= competency.description %></td>
-                      <td><%= competency.type_name %></td>
+                      <td><%= user_competency_level.user.name %></td>
+                      <td><%= user_competency_level.competency.name %></td>
+                      <td><%= user_competency_level.level.name %></td>
+                      <td><%= user_competency_level.started_date %></td>
                       <td>
                         <div class="btn-row">
-                          <%= link_to raw('<i class="fa fa-search"></i>'), competency, class: 'btn btn-sm btn-success' %>
-                          <%= link_to raw('<i class="fa fa-cogs"></i>'), edit_competency_url(competency), class: 'btn btn-sm btn-warning' %>
-                          <%= link_to raw('<i class="fa fa-trash"></i>'), competency_url(competency), class: 'btn btn-sm btn-danger', method: :delete,
+                          <%= link_to raw('<i class="fa fa-search"></i>'), user_competency_level, class: 'btn btn-sm btn-success' %>
+                          <%= link_to raw('<i class="fa fa-cogs"></i>'), edit_user_competency_level_url(user_competency_level), class: 'btn btn-sm btn-warning' %>
+                          <%= link_to raw('<i class="fa fa-trash"></i>'), user_competency_level_url(user_competency_level), class: 'btn btn-sm btn-danger', method: :delete,
                                           data: { confirm: 'Are you sure you want to delete this element?' } %>
                         </div>
                       </td>
@@ -51,6 +53,6 @@
 
 <div class="row">
   <div class="col-md-2 col-md-offset-10">
-    <%= link_to 'New Competency', new_competency_path, class: 'btn btn-success pull-right' %>
+    <%= link_to 'New competency', new_user_competency_level_path, class: 'btn btn-success pull-right' %>
   </div>
 </div>

@@ -1,0 +1,2 @@
+module UserCompetencyLevelsHelper
+end
