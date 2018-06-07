@@ -19,7 +19,7 @@ gem 'pundit'
 gem 'sendgrid'
 gem 'layer-handler'
 gem 'friendly_id'
-gem 'formtastic', '~> 3.0'
+gem 'formtastic', '~> 2.3'
 
 
 # Only Development env gems
