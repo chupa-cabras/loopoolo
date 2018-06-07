@@ -12,8 +12,6 @@ This stylesheet forms part of the Formtastic Rails Plugin
 /* NORMALIZE AND RESET - obviously inspired by Yahoo's reset.css, but scoped to just .formtastic
 --------------------------------------------------------------------------------------------------*/
 
-
-
 .formtastic,
 .formtastic ul,
 .formtastic ol,
@@ -131,6 +129,9 @@ This stylesheet forms part of the Formtastic Rails Plugin
   float:left;
   padding-top:.2em;
   border: 10px;
+  font-size: 16px;
+  color: #777;
+  text-align: right;
 }
 
 .formtastic .fragments .label,

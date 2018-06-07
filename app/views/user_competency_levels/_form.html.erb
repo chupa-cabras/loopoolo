@@ -1,12 +1,27 @@
-<%= semantic_form_for @user_competency_level do |f| %>
-  <%= f.inputs do %>
-    <%= f.input :user %>
-    <%= f.input :competency %>
-    <%= f.input :level %>
-    <%= f.input :started_date %>
-  <% end %>
+<div class="box-body">
+  <div class="col-md-6 box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">Quick Example</h3>
+    </div>
+    <%= semantic_form_for @user_competency_level do |f| %>
+      <%= f.inputs do %>
+        <div class="form-group">
+          <%= f.input :user %>
+        </div>
+        <div class="form-group">
+          <%= f.input :competency %>
+        </div>
+        <div class="form-group">
+          <%= f.input :level %>
+        </div>
+        <div class="form-group">
+          <%= f.input :started_date %>
+        </div>
+      <% end %>
 
-  <%= f.actions do %>
-    <%= f.action :submit, :as => :input %>
-  <% end %>
-<% end %>
+      <%= f.actions do %>
+        <%= f.action :submit, :as => :input, :button_html => { :class => 'btn btn-primary' } %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
