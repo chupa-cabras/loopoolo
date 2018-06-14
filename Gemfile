@@ -20,7 +20,8 @@ gem 'sendgrid'
 gem 'layer-handler'
 gem 'friendly_id'
 gem 'formtastic', '~> 2.3'
-
+gem 'xmlrpc'
+gem 'gravatar-ultimate'
 
 # Only Development env gems
 group :development do
