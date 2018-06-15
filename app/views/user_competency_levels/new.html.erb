@@ -1,5 +1,10 @@
-<h1>New User Competency Level</h1>
-
-<%= render 'form', user_competency_level: @user_competency_level %>
+<div class="row">
+  <!-- left column -->
+  <div class="col-md-6">
+    <!-- general form elements -->
+    <%= render 'form', user_competency_level: @user_competency_level %>
+    <!-- /.box -->
+  </div>
+</div>
 
 <%= link_to 'Back', user_competency_levels_path %>

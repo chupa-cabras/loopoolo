@@ -1,5 +1,6 @@
 class UserCompetencyLevelsController < ApplicationController
   before_action :set_user_competency_level, only: [:show, :edit, :update, :destroy]
+  before_action :load_lists, only: [:new]
 
   # GET /user_competency_levels
   # GET /user_competency_levels.json
@@ -70,5 +71,11 @@ class UserCompetencyLevelsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_competency_level_params
       params.require(:user_competency_level).permit(:user_id, :competency_id, :level_id, :started_date)
+    end
+
+    def load_lists
+      @levels = Level.all
+      @competencies = Competency.all
+      @users = User.all
     end
 end

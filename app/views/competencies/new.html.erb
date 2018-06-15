@@ -1,5 +1,10 @@
-<h1>New Competency</h1>
-
-<%= render 'form', competency: @competency %>
+<div class="row">
+  <!-- left column -->
+  <div class="col-md-6">
+    <!-- general form elements -->
+    <%= render 'form', competency: @competency %>
+    <!-- /.box -->
+  </div>
+</div>
 
 <%= link_to 'Back', competencies_path %>
